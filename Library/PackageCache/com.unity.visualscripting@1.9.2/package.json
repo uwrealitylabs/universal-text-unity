@@ -1,0 +1,26 @@
+{
+  "name": "com.unity.visualscripting",
+  "displayName": "Visual Scripting",
+  "version": "1.9.2",
+  "unity": "2021.3",
+  "description": "Visual scripting is a workflow that uses visual, node-based graphs to design behaviors rather than write lines of C# script.\n\nEnabling artists, designers and programmers alike, visual scripting can be used to design final logic, quickly create prototypes, iterate on gameplay and create custom nodes to help streamline collaboration.\n\nVisual scripting is compatible with third-party APIs, including most packages, assets and custom libraries.",
+  "type": "tool",
+  "dependencies": {
+    "com.unity.ugui": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0"
+  },
+  "relatedPackages": {
+    "com.unity.visualscripting.tests": "1.9.2"
+  },
+  "_upm": {
+    "changelog": "### Fixed\n- Fixed a bug where the second player input device controlled all objects when using InputSystem event nodes [UVSB-2499](https://issuetracker.unity3d.com/product/unity/issues/guid/UVSB-2499)\n- Documentation links have been fixed for Visual Scripting MonoBehaviours [UVSB-2475](https://issuetracker.unity3d.com/product/unity/issues/guid/UVSB-2475) [UVSB-2496](https://issuetracker.unity3d.com/product/unity/issues/guid/UVSB-2496)\n\n### Changed\n- AnimationEvent and NamedAnimationEvent Nodes icon changed in favor of the AnimationClip icon instead of the Animation Component icon."
+  },
+  "upmCi": {
+    "footprint": "ffb2f2b5cb9e5230e6bf259a925303790c600eba"
+  },
+  "repository": {
+    "url": "https://github.cds.internal.unity3d.com/unity/com.unity.visualscripting.git",
+    "type": "git",
+    "revision": "0dd874ef58a75ee4b4df6a81e65230e2602096a3"
+  }
+}
