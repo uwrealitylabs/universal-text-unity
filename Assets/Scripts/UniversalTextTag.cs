@@ -8,7 +8,7 @@ using UnityEditor;
 // THIS IS A TEMPLATE FOR UniversalTextTag
 
 /// <summary>
-/// UniversalTextTag script
+/// A tag that marks this GameObjecct to be included in the overall real-time text representation created by Universal Text
 /// </summary>
 public class UniversalTextTag : MonoBehaviour
 {
