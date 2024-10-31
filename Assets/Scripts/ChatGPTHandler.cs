@@ -48,7 +48,7 @@ public class ChatGPTHandler : MonoBehaviour
         // Create the user message
         var userMessage = new Message { role = "user", content = sentMessage };
         messagesLog.Add(userMessage);
-
+sk-
         // Create the chat request
         ChatRequest requestData = new ChatRequest
         {
