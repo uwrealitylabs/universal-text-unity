@@ -3,7 +3,6 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 
-// Define the request structure
 [System.Serializable]
 public class ChatRequest
 {
@@ -19,7 +18,6 @@ public class Message
     public string content;
 }
 
-// Define the response structure
 [System.Serializable]
 public class ChatResponse
 {
@@ -45,11 +43,9 @@ public class ChatGPTHandler : MonoBehaviour
 
     private IEnumerator SendRequestCoroutine(string sentMessage, System.Action<string> onResponse)
     {
-        // Create the user message
         var userMessage = new Message { role = "user", content = sentMessage };
         messagesLog.Add(userMessage);
 sk-
-        // Create the chat request
         ChatRequest requestData = new ChatRequest
         {
             model = "gpt-3.5-turbo",
@@ -59,7 +55,6 @@ sk-
 
         string jsonData = JsonUtility.ToJson(requestData);
 
-        // Set up UnityWebRequest
         using (UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST"))
         {
             byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
@@ -74,8 +69,6 @@ sk-
             if (request.result == UnityWebRequest.Result.Success)
             {
                 var responseText = request.downloadHandler.text;
-
-                // Deserialize response
                 ChatResponse chatResponse = JsonUtility.FromJson<ChatResponse>(responseText);
                 if (chatResponse.choices != null && chatResponse.choices.Count > 0)
                 {
