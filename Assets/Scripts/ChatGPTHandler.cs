@@ -35,7 +35,7 @@ public class Choice
 
 public class ChatGPTHandler : MonoBehaviour
 {
-    private string apiKey = "insert api key";
+    private string apiKey = "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";
     private List<Message> messagesLog = new List<Message>();
 
     public void SendReply(string sentMessage, System.Action<string> onResponse)
