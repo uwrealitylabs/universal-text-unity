@@ -24,13 +24,6 @@ public class UniversalTextTag : MonoBehaviour
     /// </summary>
     public List<Attribute> Attributes = new List<Attribute>();
 
-    private string _representation;
-    /// <summary>
-    /// Formatted string representation of the Object
-    /// </summary>
-    public string Representation { get => String.Format(_representation, References.ToArray()); set => _representation = value; }
-    [HideInInspector] public List<Attribute> References = new List<Attribute>();
-
     public override string ToString()
     {
         string representation = $"{String.Copy(Description)}, which is ";
