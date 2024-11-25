@@ -26,7 +26,12 @@ public class UniversalTextTag : MonoBehaviour
 
     public override string ToString()
     {
-        string representation = $"{String.Copy(Description)}, which is ";
+        string representation = $"{String.Copy(Description)}";
+        if (Attributes.Count == 0)
+        {
+            return representation += ".";
+        }
+        representation += ", which is ";
         if (Attributes.Count == 1)
         {
             return representation += $"{Attributes.First()}.";
@@ -244,14 +249,14 @@ public class UniversalTextTag : MonoBehaviour
     {
         // EXAMPLE
         
-        int legs = 4;
-        Description = "A dining table";
-        Attributes.Add(new Attribute("is {0} inches wide", () => 110));
-        Attributes.Add(new Attribute("is made of {0}", () => "wood"));
-        Attributes.Add(new Attribute("has {0} legs", () => legs));
-        Debug.Log(this);
-        legs = 5;
-        Debug.Log(this);
+        //int legs = 4;
+        //Description = "A dining table";
+        //Attributes.Add(new Attribute("is {0} inches wide", () => 110));
+        //Attributes.Add(new Attribute("is made of {0}", () => "wood"));
+        //Attributes.Add(new Attribute("has {0} legs", () => legs));
+        //Debug.Log(this);
+        //legs = 5;
+        //Debug.Log(this);
         
         // Result:
         //  1) "A dining table, which is 110 inches wide, is made of wood, and has 4 legs."
