@@ -45,7 +45,7 @@ public class ChatGPTHandler : MonoBehaviour
     {
         var userMessage = new Message { role = "user", content = sentMessage };
         messagesLog.Add(userMessage);
-sk-
+
         ChatRequest requestData = new ChatRequest
         {
             model = "gpt-3.5-turbo",
