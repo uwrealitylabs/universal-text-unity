@@ -29,9 +29,6 @@ public class PointGesture : MonoBehaviour
         {
             lineRenderer.enabled = false; 
         }
-        /*Debug.Log($"Left Hand Index Pinching: {leftHand?.GetFingerIsPinching(HandFinger.Index)}");
-        Debug.Log($"Right Hand Index Pinching: {rightHand?.GetFingerIsPinching(HandFinger.Index)}");*/
-
     }
 
     private bool IsPoking(Hand hand)
@@ -40,8 +37,6 @@ public class PointGesture : MonoBehaviour
         {
             return false;
         }
-
-        // bool indexExtended = hand.GetFingerIsPinching(HandFinger.Index) == false;
         bool indexExtended = !IsFingerCurled(hand, HandFinger.Index);
 
         bool otherFingersCurled = 
