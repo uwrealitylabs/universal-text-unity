@@ -1,5 +1,9 @@
 {
     "recommendations": [
-      "visualstudiotoolsforunity.vstuc"
+        "visualstudiotoolsforunity.vstuc",
+        "ms-dotnettools.csharp",
+        "unity.unity-debug",
+        "eamodio.gitlens",
+        "ms-vscode.cpptools"
     ]
 }
