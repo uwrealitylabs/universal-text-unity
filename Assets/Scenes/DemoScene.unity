@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.081782475, g: 0.09898821, b: 0.1317783, a: 1}
+  m_IndirectSpecularColor: {r: 0.0817826, g: 0.098988295, b: 0.1317786, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -517,10 +517,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7305686084408359732, guid: 15b2f87506f6346efa4d7a6c469390c9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2061864131}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15b2f87506f6346efa4d7a6c469390c9, type: 3}
 --- !u!1 &421595540
 GameObject:
@@ -557,17 +554,6 @@ Transform:
   - {fileID: 1946010450}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &488776795 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9128385996316964273, guid: 15b2f87506f6346efa4d7a6c469390c9, type: 3}
-  m_PrefabInstance: {fileID: 405500946}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9067480af55f5874d8f613b16812f968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &542048662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5500661605437975082, guid: 2db51a3ce7d7fe34a934d68f0c488f54, type: 3}
@@ -1125,6 +1111,50 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1137107733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137107735}
+  - component: {fileID: 1137107734}
+  m_Layer: 0
+  m_Name: Dummy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1137107734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137107733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7d135fc62ce6848b659c3668cc4b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1137107735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137107733}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.370465, y: -0.6118324, z: 8.989021}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1176359127 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3397794668357964319, guid: a5ac041b79f79364ca8481b503332787, type: 3}
@@ -1700,17 +1730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: an orange pen holder
---- !u!114 &1759326229 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6888006586913098423, guid: 15b2f87506f6346efa4d7a6c469390c9, type: 3}
-  m_PrefabInstance: {fileID: 405500946}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9067480af55f5874d8f613b16812f968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1946010448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,25 +1923,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a green and black stapler
---- !u!1 &2061864129 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7305686084408359732, guid: 15b2f87506f6346efa4d7a6c469390c9, type: 3}
-  m_PrefabInstance: {fileID: 405500946}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2061864131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061864129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c52a243fcf134c2e818ce025b6edd48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handGrabInteractor: {fileID: 488776795}
-  handGrabInteractorRight: {fileID: 1759326229}
 --- !u!1 &2081731789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2204,3 +2204,4 @@ SceneRoots:
   - {fileID: 1299262222}
   - {fileID: 1463193379}
   - {fileID: 405500946}
+  - {fileID: 1137107735}
