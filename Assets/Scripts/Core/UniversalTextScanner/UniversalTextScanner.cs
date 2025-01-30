@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace UniversalText.Core
 {
+    /// <summary>
+    /// Singleton class that generates a text description of the user's current environment and interactions.
+    /// Does so by aggregating the UniversalTextTags present in each given SearchPoint
+    /// </summary>
     public class UniversalTextScanner 
     {
         private static readonly Lazy<UniversalTextScanner> lazy = new Lazy<UniversalTextScanner>(() => new UniversalTextScanner());
@@ -21,28 +25,34 @@ namespace UniversalText.Core
             string rtr = "";
             foreach (ISearchPoint searchPoint in _searchPoints)
             {
-                List<UniversalTextTag> tags = searchPoint.Search();
+                List<UniversalTextTag> tags = searchPoint.Search().Distinct().ToList();
                 if (tags.Count == 0) continue;
                 
                 if (tags.Count == 1)
                 {
-                    return searchPoint.Description + tags[0].ToString();
+                    rtr += $"{searchPoint.Description} {tags[0].ToString()}. ";
+                    continue;
                 }
                 string searchPointStr = searchPoint.Description;
                 foreach (UniversalTextTag tag in tags)
                 {
                     if (tag == tags.Last())
                     {
-                        searchPointStr += " and" + tag.ToString() + ". ";
+                        searchPointStr += $" and {tag.ToString()}. ";
                     }
                     else
                     {
-                        searchPointStr += ", " + tag.ToString();
+                        searchPointStr += $", {tag.ToString()}";
                     }
                 }
                 rtr += searchPointStr;
             }
-            return rtr.Remove(rtr.Length - 1); // Remove trailing space
+            if (rtr.Length > 0)
+            {
+                // Remove trailing space
+                rtr = rtr.Remove(rtr.Length - 1);
+            }
+            return rtr;
         }
 
         /// <summary>

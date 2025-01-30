@@ -22,29 +22,29 @@ namespace UniversalText.Core
 
         public override string ToString()
         {
-            string representation = $"{String.Copy(Description)}";
+            string representation = string.Copy(Description);
 
-            // Clean out invalid attributes
-            List<Attribute> cleanedAttributes = new List<Attribute>();
+            // Omit invalid attributes
+            List<Attribute> validAttributes = new List<Attribute>();
             foreach (Attribute attribute in Attributes)
             {
-                if (attribute.Valid) cleanedAttributes.Add(attribute);
+                if (attribute.Valid) validAttributes.Add(attribute);
             }
 
-            if (cleanedAttributes.Count == 0)
+            if (validAttributes.Count == 0)
             {
-                return representation += ".";
+                return representation;
             }
             representation += ", which ";
-            if (cleanedAttributes.Count == 1)
+            if (validAttributes.Count == 1)
             {
-                return representation += $"{cleanedAttributes.First()}.";
+                return representation += $"{validAttributes.First()}.";
             }
-            foreach (Attribute attribute in cleanedAttributes)
+            foreach (Attribute attribute in validAttributes)
             {
-                if (attribute == cleanedAttributes.Last())
+                if (attribute == validAttributes.Last())
                 {
-                    representation += $"and {attribute}.";
+                    representation += $"and {attribute}";
                 }
                 else
                 {
