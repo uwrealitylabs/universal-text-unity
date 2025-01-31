@@ -39,7 +39,6 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.0817826, g: 0.098988295, b: 0.1317786, a: 1}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -124,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &147513733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4509613768403488414, guid: 900432286b70dd3448b0884c911e1f6d, type: 3}
-  m_PrefabInstance: {fileID: 3626580798515451460}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &157414542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -510,8 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: an orange coffee pot
-  Relationships: []
-  Representation: 
+  Relations: []
 --- !u!1 &404856598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1202981191471370897, guid: 458271fb06e38ef4abfe60d080c61a94, type: 3}
@@ -530,8 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: an orange trash can
-  Relationships: []
-  Representation: 
+  Relations: []
 --- !u!54 &404856601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -594,6 +586,82 @@ Transform:
   - {fileID: 1946010450}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &493553976
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2483171112402263010, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483171112402263010, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642352042163518208, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_Name
+      value: OVRCameraRigInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628733740971023418, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.318
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993978438418926402, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: _property
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4543456757522008391, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1425535054}
+  m_SourcePrefab: {fileID: 100100000, guid: f54012181eacade4ea242c65f804720f, type: 3}
 --- !u!1 &542048662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5500661605437975082, guid: 2db51a3ce7d7fe34a934d68f0c488f54, type: 3}
@@ -639,8 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a black plant pot containing a green plant
-  Relationships: []
-  Representation: 
+  Relations: []
 --- !u!1 &636623644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2824801679941595952, guid: 3713613c4ffcd6945900432c53af79b8, type: 3}
@@ -659,8 +726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a basic office chair
-  Relationships: []
-  Representation: 
+  Relations: []
 --- !u!1001 &642139391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -724,6 +790,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 404856600}
   m_SourcePrefab: {fileID: 100100000, guid: 458271fb06e38ef4abfe60d080c61a94, type: 3}
+--- !u!114 &700307357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 939354696915477035, guid: f54012181eacade4ea242c65f804720f, type: 3}
+  m_PrefabInstance: {fileID: 493553976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a379f34d4f4f2e408d34f14bfb753ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &748562333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4101112173780443809, guid: 494d1072afe81fe449dc0c5b43fb5099, type: 3}
@@ -769,8 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a beige coffee mug
-  Relationships: []
-  Representation: 
+  Relations: []
 --- !u!1001 &777543555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -992,8 +1068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a brown plant pot, containing a red plant
-  Relationships: []
-  Representation: 
+  Relations: []
 --- !u!1 &1066616113 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8096225794911467613, guid: 2db51a3ce7d7fe34a934d68f0c488f54, type: 3}
@@ -1083,8 +1158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a basic office computer
-  Relationships: []
-  Representation: 
+  Relations: []
 --- !u!1001 &1276643291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1145,6 +1219,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6575495219508977756, guid: 39ce2aae8ff6f9148acb0e82db36ee1d, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1152,9 +1230,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2074894252628855407, guid: 39ce2aae8ff6f9148acb0e82db36ee1d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2016959748}
-    - targetCorrespondingSourceObject: {fileID: 2074894252628855407, guid: 39ce2aae8ff6f9148acb0e82db36ee1d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2016959749}
   m_SourcePrefab: {fileID: 100100000, guid: 39ce2aae8ff6f9148acb0e82db36ee1d, type: 3}
 --- !u!1 &1290645952
 GameObject:
@@ -1310,6 +1385,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1176359129}
   m_SourcePrefab: {fileID: 100100000, guid: a5ac041b79f79364ca8481b503332787, type: 3}
+--- !u!1 &1375664853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4543456757522008391, guid: f54012181eacade4ea242c65f804720f, type: 3}
+  m_PrefabInstance: {fileID: 493553976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1390273401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1464,6 +1544,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 421595541}
   m_LocalEulerAnglesHint: {x: 36.773, y: -326.54102, z: -1.001}
+--- !u!114 &1425535051 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3485521459009502354, guid: f54012181eacade4ea242c65f804720f, type: 3}
+  m_PrefabInstance: {fileID: 493553976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375664853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a379f34d4f4f2e408d34f14bfb753ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1425535054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375664853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc6f956e4f9af844bb10a8acc1a0044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftHand: {fileID: 1425535051}
+  rightHand: {fileID: 700307357}
 --- !u!1001 &1463193379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1566,8 +1671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a white yoga ball
-  Relationships: []
-  Representation: 
+  Relations: []
 --- !u!1 &1659082877 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5289405857127828154, guid: 09786b2145094304f8e76c50e272040f, type: 3}
@@ -1640,8 +1744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: an orange pen holder
-  Relationships: []
-  Representation: 
+  Relations: []
 --- !u!1 &1946010448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,21 +1925,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2016959749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016959746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bdc7c04b5277441af5c136e4125a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Description: a green and black stapler
-  Relationships: []
-  Representation: 
 --- !u!1 &2081731789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,21 +2110,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 304683533}
   m_SourcePrefab: {fileID: 100100000, guid: 7c525024ae8431e45b357520bb8407a6, type: 3}
---- !u!114 &543450653143515745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147513733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bdc7c04b5277441af5c136e4125a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Description: a brown conference table
-  Relationships: []
-  Representation: 
 --- !u!1001 &3626580798515451460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2045,6 +2118,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3794743907153925041, guid: 900432286b70dd3448b0884c911e1f6d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0144435
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794743907153925041, guid: 900432286b70dd3448b0884c911e1f6d, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5067496
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794743907153925041, guid: 900432286b70dd3448b0884c911e1f6d, type: 3}
+      propertyPath: m_Center.z
+      value: 0.005363226
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794743907153925041, guid: 900432286b70dd3448b0884c911e1f6d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794743907153925041, guid: 900432286b70dd3448b0884c911e1f6d, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3881695478753448996, guid: 900432286b70dd3448b0884c911e1f6d, type: 3}
       propertyPath: m_RootOrder
       value: 50
@@ -2096,10 +2189,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4509613768403488414, guid: 900432286b70dd3448b0884c911e1f6d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 543450653143515745}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 900432286b70dd3448b0884c911e1f6d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2120,3 +2210,4 @@ SceneRoots:
   - {fileID: 1299262222}
   - {fileID: 1463193379}
   - {fileID: 208968271}
+  - {fileID: 493553976}

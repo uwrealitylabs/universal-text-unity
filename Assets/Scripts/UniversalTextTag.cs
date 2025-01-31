@@ -108,5 +108,6 @@ public class UniversalTextTag : MonoBehaviour
         //  2) "A dining table, which is 110 inches wide, is made of wood, and has 5 legs."
         // This Representation string will be created by the UTC at Awake() for all UTTs
         // Notice that the Representation string is re-evaluated whenever its value is retrieved
+        Debug.Log(ToString());
     }
 }

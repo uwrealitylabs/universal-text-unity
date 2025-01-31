@@ -2,14 +2,11 @@
     "files.exclude": {
         "**/.DS_Store": true,
         "**/.git": true,
-<<<<<<< Updated upstream
-        "**/.vs": true,
+        "<<<<<<<Updatedupstream**/.vs": true,
         "**/.gitmodules": true,
         "**/.vsconfig": true,
-=======
-        "**/.gitmodules": true,
->>>>>>> Stashed changes
-        "**/*.booproj": true,
+        "=======**/.gitmodules": true,
+        ">>>>>>>Stashedchanges**/*.booproj": true,
         "**/*.pidb": true,
         "**/*.suo": true,
         "**/*.user": true,
@@ -53,16 +50,13 @@
         "library/": true,
         "obj/": true,
         "Obj/": true,
-<<<<<<< Updated upstream
-        "Logs/": true,
+        "<<<<<<<UpdatedupstreamLogs/": true,
         "logs/": true,
         "ProjectSettings/": true,
         "UserSettings/": true,
-=======
-        "ProjectSettings/": true,
->>>>>>> Stashed changes
-        "temp/": true,
+        "=======ProjectSettings/": true,
+        ">>>>>>>Stashedchangestemp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "universal-text-unity.sln"
+    "dotnet.defaultSolution": "universal-text-unity - Copy.sln"
 }
