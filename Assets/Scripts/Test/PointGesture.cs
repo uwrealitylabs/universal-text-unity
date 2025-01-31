@@ -1,5 +1,6 @@
 using UnityEngine;
 using Oculus.Interaction.Input;
+using UniversalText.Core;
 
 public class PointGesture : MonoBehaviour
 {
