@@ -2,33 +2,51 @@ using UnityEngine;
 using Oculus.Interaction.Input;
 using UniversalText.Core;
 
-public class PointGesture : MonoBehaviour
+public class PointGestureVisualizer : MonoBehaviour
 {
     public Hand leftHand;
     public Hand rightHand;
-    private LineRenderer lineRenderer;
+
+    private LineRenderer _lineRendererLeft;
+    private LineRenderer _lineRendererRight;
 
     void Start()
     {
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
-        lineRenderer.startWidth = 0.01f;
-        lineRenderer.endWidth = 0.01f; 
-        lineRenderer.enabled = false;
+        // Left hand visualizer
+        GameObject lineRendererLeftObj = new GameObject("LeftVisualizer", new System.Type[] { typeof(LineRenderer) });
+        lineRendererLeftObj.transform.SetParent(this.gameObject.transform);
+        _lineRendererLeft = lineRendererLeftObj.GetComponent<LineRenderer>();
+        _lineRendererLeft.startWidth = 0.01f;
+        _lineRendererLeft.endWidth = 0.01f;
+        _lineRendererLeft.enabled = false;
+
+        // Right hand visualizer
+        GameObject lineRendererRightObj = new GameObject("RightVisualizer", new System.Type[] { typeof(LineRenderer) });
+        lineRendererRightObj.transform.SetParent(this.gameObject.transform);
+        _lineRendererRight = lineRendererRightObj.GetComponent<LineRenderer>();
+        _lineRendererRight.startWidth = 0.01f;
+        _lineRendererRight.endWidth = 0.01f;
+        _lineRendererRight.enabled = false;
     }
 
     void Update()
     {
-        if (IsPoking(rightHand))
+        if (IsPoking(leftHand))
         {
-            CreateRaycast(rightHand);
-        }
-        else if (IsPoking(leftHand))
-        {
-            CreateRaycast(leftHand);
+            CreateRaycast(leftHand, _lineRendererLeft);
         }
         else
         {
-            lineRenderer.enabled = false; 
+            _lineRendererLeft.enabled = false;
+        }
+
+        if (IsPoking(rightHand))
+        {
+            CreateRaycast(rightHand, _lineRendererRight);
+        } 
+        else
+        {
+            _lineRendererRight.enabled = false;
         }
     }
 
@@ -71,11 +89,11 @@ public class PointGesture : MonoBehaviour
         };
     }
 
-    private void CreateRaycast(Hand hand)
+    private void CreateRaycast(Hand hand, LineRenderer lineRenderer)
     {
         if (hand == null) return;
 
-        if (hand.GetJointPose(HandJointId.HandIndexTip, out Pose tipPose) && hand.GetJointPose(HandJointId.HandWristRoot, out Pose basePose))
+        if (hand.GetJointPose(HandJointId.HandIndexTip, out Pose tipPose) && hand.GetJointPose(HandJointId.HandIndex3, out Pose basePose))
         {
             lineRenderer.enabled = true;
             lineRenderer.SetPosition(0, tipPose.position);
@@ -93,18 +111,6 @@ public class PointGesture : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, 10f))
         {
-            Debug.Log($"Pointed at: {hit.collider.gameObject}");
-
-            UniversalTextTag textTag = hit.collider.gameObject.GetComponentInParent<UniversalTextTag>();
-            if (textTag != null)
-            {
-                Debug.Log($"Description: {textTag.ToString()}");
-            }
-            else
-            {
-                Debug.Log("UniversalTextTag not found on the hit object.");
-            }
-
             endPosition = hit.point;
         }
 
