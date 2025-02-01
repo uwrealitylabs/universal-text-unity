@@ -11,14 +11,15 @@ public class Test : MonoBehaviour
     public HandGrabInteractor rightHandGrabInteractor;
     public Hand leftHand;
     public Hand rightHand;
+    public Camera xrCamera;
+    public float maxViewDistance = 10f;
     
 
     void Start()
     {
         UniversalTextScanner.Instance.AddSearchPoint(new GrabbingSearchPoint(leftHandGrabInteractor, rightHandGrabInteractor));
-        Debug.Log(rightHand);
-        Debug.Log(leftHand);
         UniversalTextScanner.Instance.AddSearchPoint(new PointingSearchPoint(rightHand, leftHand));
+        UniversalTextScanner.Instance.AddSearchPoint(new LookingSearchPoint(xrCamera, maxViewDistance));
         UniversalTextScanner.Instance.Generate();
         StartCoroutine(PrintUTS());
     }
