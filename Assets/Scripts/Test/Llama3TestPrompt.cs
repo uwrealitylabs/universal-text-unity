@@ -73,23 +73,35 @@ public class Llama3TestPrompt : MonoBehaviour
 
     private void AppendMessage(string messageContent, bool isUser)
     {
-        Debug.Log($"Appending message: {messageContent}");
+        Debug.Log($"Appending {(isUser ? "sent" : "received")} message: {messageContent}");
         
-        // Instantiate the correct prefab
+        // Validate prefab references
+        if (sent == null || received == null)
+        {
+            Debug.LogError("Message prefabs not assigned!");
+            return;
+        }
+
+        // Create message instance
         var template = isUser ? sent : received;
         var item = Instantiate(template, scroll.content);
-        item.gameObject.SetActive(true);
-
-        // Find and update the TextMeshProUGUI component
-        var textComponent = item.GetComponentInChildren<TextMeshProUGUI>();
+        
+        // Find TextMeshProUGUI in the root or children
+        var textComponent = item.GetComponent<TMPro.TextMeshProUGUI>();
+        if (textComponent == null)
+        {
+            textComponent = item.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        }
+        
         if (textComponent != null)
         {
-            textComponent.SetText(messageContent);  // Using SetText instead of direct assignment
-            Debug.Log($"Set message text to: {messageContent}");
+            textComponent.SetText(messageContent);
+            Debug.Log($"Successfully set message text to: {messageContent}");
         }
         else
         {
-            Debug.LogError($"TextMeshProUGUI component not found in {(isUser ? "sent" : "received")} message prefab!");
+            Debug.LogError($"TextMeshProUGUI component not found in {(isUser ? "sent" : "received")} message prefab! " +
+                          "Make sure to create the prefab using UI → Text - TextMeshPro");
             return;
         }
 

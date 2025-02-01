@@ -986,7 +986,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1611,8 +1611,8 @@ MonoBehaviour:
   inputField: {fileID: 1079664277}
   button: {fileID: 1920761190}
   scroll: {fileID: 356682880}
-  sent: {fileID: 8660877164928630359, guid: 53cd26a6eefa5a74086203cd118a04d3, type: 3}
-  received: {fileID: 961534450149497043, guid: adc0146c2853ed1418133faaf4379eb1, type: 3}
+  sent: {fileID: 4679280986133870024, guid: 88510f40cdbfd4a20a6b5da6f4efffa8, type: 3}
+  received: {fileID: 280312687618590328, guid: 389c72b33f39f424895f4e49dd04b7d1, type: 3}
   llama3Handler: {fileID: 499436301}
 --- !u!1 &2102003808
 GameObject:
