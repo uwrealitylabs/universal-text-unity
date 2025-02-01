@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniversalText.Core;
+using Oculus.Interaction.Input;
 
 public class Test : MonoBehaviour
 {
     public HandGrabInteractor leftHandGrabInteractor;
     public HandGrabInteractor rightHandGrabInteractor;
+    public Hand leftHand;
+    public Hand rightHand;
     public Camera xrCamera;
     public float maxViewDistance = 10f;
     
@@ -15,6 +18,7 @@ public class Test : MonoBehaviour
     void Start()
     {
         UniversalTextScanner.Instance.AddSearchPoint(new GrabbingSearchPoint(leftHandGrabInteractor, rightHandGrabInteractor));
+        UniversalTextScanner.Instance.AddSearchPoint(new PointingSearchPoint(rightHand, leftHand));
         UniversalTextScanner.Instance.AddSearchPoint(new LookingSearchPoint(xrCamera, maxViewDistance));
         UniversalTextScanner.Instance.Generate();
         StartCoroutine(PrintUTS());
