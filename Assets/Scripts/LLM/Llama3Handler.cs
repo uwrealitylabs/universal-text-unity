@@ -26,12 +26,14 @@ public class Llama3Handler : MonoBehaviour
 
     public void SendMessage(string userMessage, System.Action<string> onResponse)
     {
+        Debug.Log($"Llama3Handler: Sending message: {userMessage}");
         messageLog.Add(userMessage);
         StartCoroutine(SendRequestCoroutine(userMessage, onResponse));
     }
 
     private IEnumerator SendRequestCoroutine(string message, System.Action<string> onResponse)
     {
+        Debug.Log($"Llama3Handler: Starting request for message: {message}");
         var requestData = new Llama3Request
         {
             model = modelName,
@@ -52,7 +54,9 @@ public class Llama3Handler : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
                 string responseText = request.downloadHandler.text;
+                Debug.Log($"Llama3Handler: Received raw response: {responseText}");
                 string parsedResponse = ParseLlamaResponse(responseText);
+                Debug.Log($"Llama3Handler: Parsed response: {parsedResponse}");
                 messageLog.Add(parsedResponse);
                 onResponse?.Invoke(parsedResponse);
             }

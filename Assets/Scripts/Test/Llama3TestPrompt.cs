@@ -13,96 +13,62 @@ public class Llama3TestPrompt : MonoBehaviour
 
     private void Start()
     {
-        // Validate all required components
-        bool hasErrors = false;
+        // Add validation logging
+        Debug.Log("Llama3TestPrompt: Starting...");
         
-        if (inputField == null)
-        {
-            Debug.LogError("Input Field reference not set on Llama3TestPrompt!");
-            hasErrors = true;
-        }
-        
-        if (button == null)
-        {
-            Debug.LogError("Button reference not set on Llama3TestPrompt!");
-            hasErrors = true;
-        }
-        
-        if (scroll == null)
-        {
-            Debug.LogError("Scroll Rect reference not set on Llama3TestPrompt!");
-            hasErrors = true;
-        }
-        
-        if (sent == null)
-        {
-            Debug.LogError("Sent message prefab reference not set on Llama3TestPrompt!");
-            hasErrors = true;
-        }
-        
-        if (received == null)
-        {
-            Debug.LogError("Received message prefab reference not set on Llama3TestPrompt!");
-            hasErrors = true;
-        }
-
-        // Try to find Llama3Handler if not assigned
+        if (inputField == null) Debug.LogError("Input Field not assigned!");
+        if (button == null) Debug.LogError("Button not assigned!");
+        if (scroll == null) Debug.LogError("Scroll View not assigned!");
+        if (sent == null) Debug.LogError("Sent message prefab not assigned!");
+        if (received == null) Debug.LogError("Received message prefab not assigned!");
         if (llama3Handler == null)
         {
             llama3Handler = FindObjectOfType<Llama3Handler>();
-            if (llama3Handler == null)
-            {
-                Debug.LogError("Llama3Handler not found in scene!");
-                hasErrors = true;
-            }
+            if (llama3Handler == null) Debug.LogError("Llama3Handler not found in scene!");
         }
 
-        // Disable button if any errors
-        if (hasErrors)
-        {
-            if (button != null)
-            {
-                button.interactable = false;
-            }
-            return;
-        }
-
-        // Add button listener if everything is valid
         button.onClick.AddListener(FireMessage);
     }
 
     private void AppendMessage(string messageContent, bool isUser)
     {
-        Debug.Log($"Appending {(isUser ? "sent" : "received")} message: {messageContent}");
+        Debug.Log($"Appending message: {messageContent}");
         
-        // Validate prefab references
-        if (sent == null || received == null)
-        {
-            Debug.LogError("Message prefabs not assigned!");
-            return;
-        }
-
         // Create message instance
         var template = isUser ? sent : received;
         var item = Instantiate(template, scroll.content);
         
-        // Find TextMeshProUGUI in the root or children
-        var textComponent = item.GetComponent<TMPro.TextMeshProUGUI>();
-        if (textComponent == null)
+        // Add layout element if it doesn't exist
+        if (!item.TryGetComponent<LayoutElement>(out var layoutElement))
         {
-            textComponent = item.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+            layoutElement = item.gameObject.AddComponent<LayoutElement>();
         }
+        layoutElement.minHeight = 30;
+        layoutElement.preferredWidth = 300;
+        layoutElement.flexibleWidth = 0;  // Don't stretch
         
-        if (textComponent != null)
+        // Position message
+        var rectTransform = item.GetComponent<RectTransform>();
+        if (isUser)
         {
-            textComponent.SetText(messageContent);
-            Debug.Log($"Successfully set message text to: {messageContent}");
+            rectTransform.anchorMin = new Vector2(1, 0);
+            rectTransform.anchorMax = new Vector2(1, 0);
+            rectTransform.pivot = new Vector2(1, 0);
+            rectTransform.anchoredPosition = new Vector2(-10, 0);
         }
         else
         {
-            Debug.LogError($"TextMeshProUGUI component not found in {(isUser ? "sent" : "received")} message prefab! " +
-                          "Make sure to create the prefab using UI → Text - TextMeshPro");
-            return;
+            rectTransform.anchorMin = new Vector2(0, 0);
+            rectTransform.anchorMax = new Vector2(0, 0);
+            rectTransform.pivot = new Vector2(0, 0);
+            rectTransform.anchoredPosition = new Vector2(10, 0);
+        }
+        
+        // Set text
+        var textComponent = item.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        if (textComponent != null)
+        {
+            textComponent.text = messageContent;
         }
 
         // Update layout
