@@ -9,8 +9,8 @@ This relies on having the whisper package installed.
 
 Possible Customizations:
 - Change detected keyword in parameter field of the script
-- Alter which language model to use. Within the whisper folder, there is ggml-tiny and ggml-medium. ggml-medium is more 
-  accurate at detecting words at the cost of being more resource intensive.
+- Alter which language model to use. Downloads for models can be found here: https://huggingface.co/ggerganov/whisper.cpp/tree/main
+After downloading the model and adding it to the project, add the model to the WhisperManager script under the Whisper prefab in "Model Path".
 
 2. By pressing a button
 This is the code in the second comment. For this, place OVRCameraRig into the scene.
