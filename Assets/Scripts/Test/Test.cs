@@ -12,16 +12,21 @@ public class Test : MonoBehaviour
     public Hand leftHand;
     public Hand rightHand;
     public Camera xrCamera;
+
     public float maxViewDistance = 10f;
+    public float angleSpread = 15f;
     public int maxNumber = 3;
     
-
     void Start()
     {
         // UniversalTextScanner.Instance.AddSearchPoint(new GrabbingSearchPoint(leftHandGrabInteractor, rightHandGrabInteractor));
         // UniversalTextScanner.Instance.AddSearchPoint(new PointingSearchPoint(rightHand, leftHand));
         // UniversalTextScanner.Instance.AddSearchPoint(new LookingSearchPoint(xrCamera, maxViewDistance));
         UniversalTextScanner.Instance.AddSearchPoint(new NearbySearchPoint(xrCamera, maxViewDistance, maxNumber));
+        UniversalTextScanner.Instance.AddSearchPoint(new GrabbingSearchPoint(leftHandGrabInteractor, rightHandGrabInteractor));
+        UniversalTextScanner.Instance.AddSearchPoint(new PointingSearchPoint(rightHand, leftHand));
+        UniversalTextScanner.Instance.AddSearchPoint(new LookingSearchPoint(xrCamera, maxViewDistance));
+        UniversalTextScanner.Instance.AddSearchPoint(new LookingInDirectionOfSearchPoint(xrCamera, maxViewDistance, angleSpread));
         UniversalTextScanner.Instance.Generate();
         StartCoroutine(PrintUTS());
     }
