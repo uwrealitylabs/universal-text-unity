@@ -32,15 +32,13 @@ namespace UniversalText.Core
             foreach (GameObject obj in objects)
             {
                 float distance = Vector3.Distance(obj.transform.position, _camera.transform.position);
-                if (distance < _maxDistance && obj.transform.parent != null)
+                if (distance < _maxDistance)
                 {
-                    GameObject parentObj = obj.transform.parent.gameObject; //colliders are under parent gameObject that contains tag
-                    if (parentObj != null){
-                        UniversalTextTag tag = parentObj.GetComponent<UniversalTextTag>();
-                        if (tag != null)
-                        {
-                            seen.Add((tag, distance));
-                        }
+                    if (obj == null) continue;
+                    UniversalTextTag tag = obj.GetComponentInParent<UniversalTextTag>();
+                    if (tag != null)
+                    {
+                        seen.Add((tag, distance));
                     }
                 }
             }

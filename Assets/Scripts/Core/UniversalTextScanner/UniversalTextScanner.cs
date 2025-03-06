@@ -23,6 +23,7 @@ namespace UniversalText.Core
         public string Generate()
         {
             string rtr = "";
+            Debug.Log("# OF SEARCH POINTS: " + _searchPoints.Count);
             foreach (ISearchPoint searchPoint in _searchPoints)
             {
                 List<UniversalTextTag> tags = searchPoint.Search().Distinct().ToList();
