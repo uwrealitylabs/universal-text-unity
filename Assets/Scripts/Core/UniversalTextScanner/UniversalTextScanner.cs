@@ -34,7 +34,7 @@ namespace UniversalText.Core
                     rtr += $"{searchPoint.Description} {tags[0].ToString()}. ";
                     continue;
                 }
-                string searchPointStr = searchPoint.Description;
+                string searchPointStr = searchPoint.Description + ':';
                 foreach (UniversalTextTag tag in tags)
                 {
                     if (tag == tags.Last())
@@ -43,7 +43,7 @@ namespace UniversalText.Core
                     }
                     else
                     {
-                        searchPointStr += $", {tag.ToString()}";
+                        searchPointStr += $" {tag.ToString()};";
                     }
                 }
                 rtr += searchPointStr;

@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: an orange coffee pot
+  attributeConfigs: []
 --- !u!114 &304683535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: an orange trash can
+  attributeConfigs: []
 --- !u!54 &404856601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -694,6 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a black plant pot containing a green plant
+  attributeConfigs: []
 --- !u!114 &542048669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,6 +823,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a basic office chair
+  attributeConfigs:
+  - formattedDescription: is tagged '{0}'
+    targetComponent: {fileID: 636623648}
+    memberName: tag
+--- !u!114 &636623648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636623644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3fed7735648dd2448cd5f3a778352a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1001 &642139391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -939,6 +959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a beige coffee mug
+  attributeConfigs: []
 --- !u!114 &748562338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,6 +1244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a brown plant pot, containing a red plant
+  attributeConfigs: []
 --- !u!114 &948575642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1472,6 +1494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a basic office computer
+  attributeConfigs: []
 --- !u!1001 &1276643291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1762,6 +1785,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2824801679941595952, guid: 3713613c4ffcd6945900432c53af79b8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 636623646}
+    - targetCorrespondingSourceObject: {fileID: 2824801679941595952, guid: 3713613c4ffcd6945900432c53af79b8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 636623648}
   m_SourcePrefab: {fileID: 100100000, guid: 3713613c4ffcd6945900432c53af79b8, type: 3}
 --- !u!1 &1399230269
 GameObject:
@@ -1963,6 +1989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a white yoga ball
+  attributeConfigs: []
 --- !u!1 &1659082877 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5289405857127828154, guid: 09786b2145094304f8e76c50e272040f, type: 3}
@@ -2040,6 +2067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: an orange pen holder
+  attributeConfigs: []
 --- !u!114 &1724635926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2284,6 +2312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a green and black stapler
+  attributeConfigs: []
 --- !u!114 &2016959751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2533,6 +2562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: a brown conference table
+  attributeConfigs: []
 --- !u!1001 &3626580798515451460
 PrefabInstance:
   m_ObjectHideFlags: 0
