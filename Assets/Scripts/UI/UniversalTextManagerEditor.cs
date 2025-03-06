@@ -21,7 +21,7 @@ namespace UniversalText.UI
         {
             serializedObject.Update();
 
-            DrawDefaultInspector();
+            //DrawDefaultInspector();
 
             EditorGUILayout.LabelField("Search Point Configurations", EditorStyles.boldLabel);
             for (int i = 0; i < _searchPointConfigsProp.arraySize; ++i)

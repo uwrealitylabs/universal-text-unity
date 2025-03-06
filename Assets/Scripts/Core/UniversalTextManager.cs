@@ -7,6 +7,10 @@ using Oculus.Interaction.Input;
 using System;
 using UniversalText.UI;
 
+/// <summary>
+/// Manages the functionality of the Universal Text package - Should be
+/// attached to some persistent GameObject in a scene, such as the OVR Camera Rig.
+/// </summary>
 public class UniversalTextManager : MonoBehaviour
 {
     [SerializeReference] public List<SearchPointConfig> searchPointConfigs = new List<SearchPointConfig>();
@@ -21,7 +25,6 @@ public class UniversalTextManager : MonoBehaviour
     {
         foreach (SearchPointConfig searchPointConfig in searchPointConfigs)
         {
-            Debug.Log("Added search point of type: " + searchPointConfig.GetType().Name);
             UniversalTextScanner.Instance.AddSearchPoint(searchPointConfig.CreateSearchPoint());
         }
     }
