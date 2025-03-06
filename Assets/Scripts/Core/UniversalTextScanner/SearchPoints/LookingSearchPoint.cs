@@ -27,14 +27,11 @@ namespace UniversalText.Core
             if (Physics.Raycast(ray, out hit, _maxDistance)) // Check if camera sees something
             {
                 GameObject obj = hit.collider.gameObject;
-                if (obj != null && obj.transform.parent != null){
-                    GameObject parentObj = obj.transform.parent.gameObject; //colliders are under parent gameObject that contains tag
-                    if (parentObj != null){
-                        UniversalTextTag tag = parentObj.GetComponent<UniversalTextTag>();
-                        if (tag != null){                  
-                            seen.Add(tag);
-                        }
-                    }
+                if (obj == null) return seen;
+                UniversalTextTag tag = obj.GetComponentInParent<UniversalTextTag>();
+                if (tag != null)
+                {
+                    seen.Add(tag);
                 }
             }
             return seen;
