@@ -19,13 +19,11 @@ public class Test : MonoBehaviour
     
     void Start()
     {
-        // UniversalTextScanner.Instance.AddSearchPoint(new GrabbingSearchPoint(leftHandGrabInteractor, rightHandGrabInteractor));
-        // UniversalTextScanner.Instance.AddSearchPoint(new PointingSearchPoint(rightHand, leftHand));
-        // UniversalTextScanner.Instance.AddSearchPoint(new LookingSearchPoint(xrCamera, maxViewDistance));
+        Debug.Log("TEST");
         UniversalTextScanner.Instance.AddSearchPoint(new NearbySearchPoint(xrCamera, maxViewDistance, maxNumber));
         UniversalTextScanner.Instance.AddSearchPoint(new GrabbingSearchPoint(leftHandGrabInteractor, rightHandGrabInteractor));
         UniversalTextScanner.Instance.AddSearchPoint(new PointingSearchPoint(rightHand, leftHand));
-        UniversalTextScanner.Instance.AddSearchPoint(new LookingSearchPoint(xrCamera, maxViewDistance));
+        //UniversalTextScanner.Instance.AddSearchPoint(new LookingSearchPoint(xrCamera, maxViewDistance));
         UniversalTextScanner.Instance.AddSearchPoint(new LookingInDirectionOfSearchPoint(xrCamera, maxViewDistance, angleSpread));
         UniversalTextScanner.Instance.Generate();
         StartCoroutine(PrintUTS());
@@ -35,6 +33,7 @@ public class Test : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log("UTS:");
             Debug.Log(UniversalTextScanner.Instance.Generate());
             yield return new WaitForSeconds(1);
         }

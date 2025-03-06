@@ -42,14 +42,11 @@ namespace UniversalText.Core
                     if (Physics.Raycast(ray, out hit, _maxDistance))
                     {
                         GameObject obj = hit.collider.gameObject;
-                        GameObject parentObj = obj.transform.parent.gameObject;
-                        if (parentObj != null)
+                        if (obj == null) continue;
+                        UniversalTextTag tag = obj.GetComponentInParent<UniversalTextTag>();
+                        if (tag != null)
                         {
-                            UniversalTextTag tag = parentObj.GetComponent<UniversalTextTag>();
-                            if (tag != null)
-                            {
-                                seenTags.Add(tag);
-                            }
+                            seenTags.Add(tag);
                         }
                     }
                 }

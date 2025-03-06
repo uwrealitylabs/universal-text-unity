@@ -24,7 +24,7 @@ namespace UniversalText.Core
             if (_leftHandGrab.HasSelectedInteractable) // Check if left hand currently grabbing something
             {
                 GameObject grabbedObject = _leftHandGrab.SelectedInteractable.gameObject;
-                UniversalTextTag tag = grabbedObject.GetComponent<UniversalTextTag>();
+                UniversalTextTag tag = grabbedObject.GetComponentInParent<UniversalTextTag>();
                 if (tag != null) // Ensure GameObject has a UTT
                 {
                     grabbed.Add(tag);
@@ -34,7 +34,7 @@ namespace UniversalText.Core
             if (_rightHandGrab.HasSelectedInteractable)
             {
                 GameObject grabbedObject = _rightHandGrab.SelectedInteractable.gameObject;
-                UniversalTextTag tag = grabbedObject.GetComponent<UniversalTextTag>();
+                UniversalTextTag tag = grabbedObject.GetComponentInParent<UniversalTextTag>();
                 if (tag != null)
                 {
                     grabbed.Add(tag);
