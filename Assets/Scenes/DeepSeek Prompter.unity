@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 499436300}
   - component: {fileID: 499436301}
   m_Layer: 0
-  m_Name: Llama3Manager
+  m_Name: DeepSeekManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,10 +695,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 499436298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ec8820c4faf8443b94069f71b37dc20, type: 3}
+  m_Script: {fileID: 11500000, guid: 2505d556d65aa42768ef1243dab8cac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelName: llama3.2
+  modelName: deepseek:1.5b
 --- !u!850595691 &839538884
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1600,7 +1600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1999524362}
-  - component: {fileID: 1999524363}
+  - component: {fileID: 1999524364}
   m_Layer: 0
   m_Name: MessageSender
   m_TagString: Untagged
@@ -1623,7 +1623,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1999524363
+--- !u!114 &1999524364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1999524360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d01fceaf81ac439cb0f4955eec90452, type: 3}
+  m_Script: {fileID: 11500000, guid: 090218081eeda492cacf0e76c2209edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 1079664277}
@@ -1640,7 +1640,7 @@ MonoBehaviour:
   scroll: {fileID: 356682880}
   sent: {fileID: 5606293483128224318, guid: c944902db32324ec79bfe535c2c31f4d, type: 3}
   received: {fileID: 5041438405270791638, guid: 21720d0b68a854068a0e55f5d6c0ed3d, type: 3}
-  llama3Handler: {fileID: 499436301}
+  deepSeekHandler: {fileID: 499436301}
 --- !u!1 &2102003808
 GameObject:
   m_ObjectHideFlags: 0
