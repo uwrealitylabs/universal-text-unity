@@ -1,18 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UniversalText.Core;
 
-public class Llama3 : MonoBehaviour
+public class UniversalTextPrompter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private TextMeshPro displayText;
+    [SerializeField] private float updateInterval = 1f;
+    private float nextUpdateTime;
+
+    private void Start()
     {
-        
+        Debug.Log("UniversalTextPrompter: Starting...");
+        if (displayText == null)
+        {
+            // Try to get TextMeshPro component from this GameObject
+            displayText = GetComponent<TextMeshPro>();
+            if (displayText == null)
+            {
+                Debug.LogError("TextMeshPro component not found!");
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        // Update RTR display at regular intervals
+        if (Time.time >= nextUpdateTime)
+        {
+            DisplayRTR();
+            nextUpdateTime = Time.time + updateInterval;
+        }
+    }
+
+    private void DisplayRTR()
+    {
+        // Get the current RTR from UniversalTextScanner
+        string rtr = UniversalTextScanner.Instance.Generate();
+        Debug.Log($"Current RTR: {rtr}");
+
+        // Display on screen
+        displayText.text = string.IsNullOrEmpty(rtr) 
+            ? "No RTR generated - nothing detected in environment" 
+            : rtr;
     }
 }
