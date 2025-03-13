@@ -20,6 +20,22 @@ namespace UniversalText.Core
         /// </summary>
         public List<Attribute> Attributes = new List<Attribute>();
 
+        [SerializeField] private List<AttributeConfig> attributeConfigs = new List<AttributeConfig>();
+
+        private void Awake()
+        {
+            InitAttributes();
+        }
+
+        private void InitAttributes()
+        {
+            foreach (AttributeConfig attributeConfig in attributeConfigs)
+            {
+                Attribute newAttribute = attributeConfig.CreateAttribute();
+                if (newAttribute != null) Attributes.Add(newAttribute);
+            }
+        }
+
         public override string ToString()
         {
             string representation = string.Copy(Description);
@@ -38,7 +54,7 @@ namespace UniversalText.Core
             representation += ", which ";
             if (validAttributes.Count == 1)
             {
-                return representation += $"{validAttributes.First()}.";
+                return representation += $"{validAttributes.First()}";
             }
             foreach (Attribute attribute in validAttributes)
             {
