@@ -4,43 +4,41 @@ using UniversalText.Core;
 
 public class UniversalTextPrompter : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro displayText;
+    [SerializeField] private DeepseekTestPrompt messageSender;
     [SerializeField] private float updateInterval = 1f;
     private float nextUpdateTime;
+    private string currentRTR = "";  // Store current RTR for context
 
     private void Start()
     {
         Debug.Log("UniversalTextPrompter: Starting...");
-        if (displayText == null)
+        if (messageSender == null)
         {
-            // Try to get TextMeshPro component from this GameObject
-            displayText = GetComponent<TextMeshPro>();
-            if (displayText == null)
+            messageSender = FindObjectOfType<DeepseekTestPrompt>();
+            if (messageSender == null)
             {
-                Debug.LogError("TextMeshPro component not found!");
+                Debug.LogError("MessageSender not found!");
             }
         }
     }
 
     private void Update()
     {
-        // Update RTR display at regular intervals
         if (Time.time >= nextUpdateTime)
         {
-            DisplayRTR();
+            UpdateRTR();
             nextUpdateTime = Time.time + updateInterval;
         }
     }
 
-    private void DisplayRTR()
+    private void UpdateRTR()
     {
-        // Get the current RTR from UniversalTextScanner
-        string rtr = UniversalTextScanner.Instance.Generate();
-        Debug.Log($"Current RTR: {rtr}");
+        currentRTR = UniversalTextScanner.Instance.Generate();
+        Debug.Log($"Current RTR: {currentRTR}");
+    }
 
-        // Display on screen
-        displayText.text = string.IsNullOrEmpty(rtr) 
-            ? "No RTR generated - nothing detected in environment" 
-            : rtr;
+    public string GetCurrentContext()
+    {
+        return currentRTR;
     }
 }

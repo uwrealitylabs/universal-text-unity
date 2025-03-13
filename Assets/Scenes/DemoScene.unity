@@ -876,8 +876,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 380, y: -100}
-  m_SizeDelta: {x: -840, y: -400}
+  m_AnchoredPosition: {x: 355, y: -90}
+  m_SizeDelta: {x: -790, y: -380}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543068462
 MonoBehaviour:
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b303bb3ef4f204ea59ef8aaab56ed25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: {fileID: 0}
+  messageSender: {fileID: 0}
   updateInterval: 1
 --- !u!4 &604408018
 Transform:
@@ -1386,9 +1386,10 @@ MonoBehaviour:
   inputField: {fileID: 1648679279}
   button: {fileID: 1613157734}
   scroll: {fileID: 1321437686}
-  sent: {fileID: 5606293483128224318, guid: c944902db32324ec79bfe535c2c31f4d, type: 3}
-  received: {fileID: 5041438405270791638, guid: 21720d0b68a854068a0e55f5d6c0ed3d, type: 3}
+  sent: {fileID: 4526803564982481835, guid: 48b4a3023a0f742e897d35be90c10427, type: 3}
+  received: {fileID: 3439135456560684263, guid: 7f167aeb5ea7248f1aab19b552636873, type: 3}
   deepSeekHandler: {fileID: 818558008}
+  prompter: {fileID: 0}
 --- !u!4 &822471388
 Transform:
   m_ObjectHideFlags: 0

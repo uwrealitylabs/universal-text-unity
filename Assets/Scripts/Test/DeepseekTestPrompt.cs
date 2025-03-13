@@ -10,6 +10,7 @@ public class DeepseekTestPrompt : MonoBehaviour
     [SerializeField] private RectTransform sent;
     [SerializeField] private RectTransform received;
     [SerializeField] private DeepSeekHandler deepSeekHandler;
+    [SerializeField] private UniversalTextPrompter prompter;
 
     private void Start()
     {
@@ -25,6 +26,11 @@ public class DeepseekTestPrompt : MonoBehaviour
         {
             deepSeekHandler = FindObjectOfType<DeepSeekHandler>();
             if (deepSeekHandler == null) Debug.LogError("DeepSeekHandler not found in scene!");
+        }
+        if (prompter == null)
+        {
+            prompter = FindObjectOfType<UniversalTextPrompter>();
+            if (prompter == null) Debug.LogError("UniversalTextPrompter not found!");
         }
 
         button.onClick.AddListener(FireMessage);
@@ -79,17 +85,23 @@ public class DeepseekTestPrompt : MonoBehaviour
 
     public void FireMessage()
     {
-        string message = inputField.text;
-        if (string.IsNullOrEmpty(message)) return;
+        string userMessage = inputField.text;
+        if (string.IsNullOrEmpty(userMessage)) return;
 
-        Debug.Log($"Sending message: {message}");
-        AppendMessage(message, isUser: true);
+        // Get current context from prompter
+        string context = prompter.GetCurrentContext();
+        
+        // Create full prompt with context
+        string fullPrompt = $"Context: {context}\nUser Question: {userMessage}";
+        
+        Debug.Log($"Sending message with context: {fullPrompt}");
+        AppendMessage(userMessage, isUser: true);  // Show only user's question in UI
 
         button.interactable = false;
         inputField.text = "";
         inputField.interactable = false;
 
-        deepSeekHandler.SendMessage(message, response =>
+        deepSeekHandler.SendMessage(fullPrompt, response =>
         {
             Debug.Log($"Received response: {response}");
             if (response != null)
