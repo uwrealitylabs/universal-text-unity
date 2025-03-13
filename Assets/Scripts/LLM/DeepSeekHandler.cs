@@ -3,12 +3,12 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using System;
-using Newtonsoft.Json;  // Add this at the top
+using Newtonsoft.Json; 
 
 [System.Serializable]
 public class DeepSeekRequest
 {
-    public string model = "deepseek-r1:1.5b";  // Exact name from ollama list
+    public string model = "deepseek-r1:1.5b";
     public string prompt;
 }
 
@@ -20,9 +20,9 @@ public class DeepSeekResponse
 
 public class DeepSeekHandler : MonoBehaviour
 {
-    [SerializeField] private string modelName = "deepseek-r1:1.5b";  // Match exactly
+    [SerializeField] private string modelName = "deepseek-r1:1.5b";
     
-    private string apiUrl = "http://127.0.0.1:11434/api/generate";  // Same Ollama endpoint
+    private string apiUrl = "http://127.0.0.1:11434/api/generate";
     private List<string> messageLog = new List<string>();
 
     public void SendMessage(string userMessage, System.Action<string> onResponse)
@@ -36,10 +36,9 @@ public class DeepSeekHandler : MonoBehaviour
     {
         Debug.Log($"DeepSeekHandler: Starting request for message: {message}");
         
-        // Create the request data with exact model name
         var requestData = new Dictionary<string, string>
         {
-            { "model", "deepseek-r1:1.5b" },  // Hardcode to ensure exact match
+            { "model", "deepseek-r1:1.5b" }, 
             { "prompt", message }
         };
 
