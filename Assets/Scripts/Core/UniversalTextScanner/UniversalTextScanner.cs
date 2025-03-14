@@ -17,6 +17,16 @@ namespace UniversalText.Core
 
         private List<ISearchPoint> _searchPoints = new List<ISearchPoint>();
 
+        // Base URL for Llama 3 instance 
+        private readonly string _llama3BaseUrl = "http://localhost:8000";
+        private Llama3Client _llama3Client;
+
+        // Initialize the Llama3Client
+        private UniversalTextScanner()
+        {
+            _llama3Client = new Llama3Client(_llama3BaseUrl);
+        }
+
         /// <summary>
         /// Generates RTR by aggregating all search points
         /// </summary>
@@ -53,6 +63,19 @@ namespace UniversalText.Core
                 rtr = rtr.Remove(rtr.Length - 1);
             }
             return rtr;
+        }
+
+         /// 
+        /// Generates an enhanced RTR by sending raw RTR to Llama 3
+        /// 
+        public async Task<string> GenerateEnhancedAsync()
+        {
+            // Get the raw RTR output
+            string rawRtr = Generate();
+
+            // Use Llama 3 to enhance the description
+            string enhancedRtr = await _llama3Client.GetEnhancedDescriptionAsync(rawRtr);
+            return enhancedRtr;
         }
 
         /// <summary>
