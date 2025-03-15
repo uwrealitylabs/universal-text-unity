@@ -10,6 +10,8 @@ namespace UniversalText.Core
     /// Singleton class that generates a text description of the user's current environment and interactions.
     /// Does so by aggregating the UniversalTextTags present in each given SearchPoint
     /// </summary>
+    
+    
     public class UniversalTextScanner
     {
         private static readonly Lazy<UniversalTextScanner> lazy = new Lazy<UniversalTextScanner>(() => new UniversalTextScanner());
