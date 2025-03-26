@@ -1,16 +1,16 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 using TMPro;
 
 public class TestPrompt : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField inputField;
+    [SerializeField] private InputField inputField;
     [SerializeField] private Button button;
     [SerializeField] private ScrollRect scroll;
     [SerializeField] private RectTransform sent;
     [SerializeField] private RectTransform received;
+
+    [SerializeField] private bool useGemini = true;
 
     private float height;
 
@@ -25,7 +25,7 @@ public class TestPrompt : MonoBehaviour
         var item = Instantiate(template, scroll.content);
         item.gameObject.SetActive(true); 
 
-        var textComponent = item.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        var textComponent = item.GetComponentInChildren<Text>();
         if (textComponent != null)
         {
             textComponent.text = messageContent;
@@ -51,12 +51,45 @@ public class TestPrompt : MonoBehaviour
         inputField.text = "";
         inputField.enabled = false;
 
-        FindObjectOfType<ChatGPTHandler>().SendReply(message, response =>
+        if (useGemini)
         {
-            Debug.Log("Response received: " + response);
-            AppendMessage(response, isUser: false);
-            button.enabled = true;
-            inputField.enabled = true;
-        });
+            var geminiHandler = FindObjectOfType<GeminiHandler>();
+            if (geminiHandler != null)
+            {
+                geminiHandler.SendReply(message, response =>
+                {
+                    Debug.Log("Gemini response received: " + response);
+                    AppendMessage(response ?? "Error: No response from Gemini", isUser: false);
+                    button.enabled = true;
+                    inputField.enabled = true;
+                });
+            }
+            else
+            {
+                Debug.LogError("GeminiHandler not found in the scene!");
+                button.enabled = true;
+                inputField.enabled = true;
+            }
+        }
+        else
+        {
+            var chatGPTHandler = FindObjectOfType<ChatGPTHandler>();
+            if (chatGPTHandler != null)
+            {
+                chatGPTHandler.SendReply(message, response =>
+                {
+                    Debug.Log("ChatGPT response received: " + response);
+                    AppendMessage(response ?? "Error: No response from ChatGPT", isUser: false);
+                    button.enabled = true;
+                    inputField.enabled = true;
+                });
+            }
+            else
+            {
+                Debug.LogError("ChatGPTHandler not found in the scene!");
+                button.enabled = true;
+                inputField.enabled = true;
+            }
+        }
     }
 }
