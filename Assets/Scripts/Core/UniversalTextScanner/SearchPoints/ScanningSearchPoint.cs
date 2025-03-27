@@ -18,7 +18,27 @@ namespace UniversalText.Core
         {   
             _scanner = scanner;
             _scannerVisual = scanner.transform.GetChild(0).gameObject;
-            _scannerRadius = scanner.GetComponent<Scanner>().ScanRadius * scanner.transform.localScale.x;
+            
+            // Try to get the original Scanner component first
+            var originalScanner = scanner.GetComponent<Scanner>();
+            if (originalScanner != null)
+            {
+                _scannerRadius = originalScanner.ScanRadius * scanner.transform.localScale.x;
+            }
+            else
+            {
+                // Fall back to ScannerAlt
+                var alternativeScanner = scanner.GetComponent<ScannerAlt>();
+                if (alternativeScanner != null)
+                {
+                    _scannerRadius = alternativeScanner.ScanRadius * scanner.transform.localScale.x;
+                }
+                else
+                {
+                    Debug.LogError("No scanner component found on the provided GameObject");
+                    _scannerRadius = 0f;
+                }
+            }
         }
 
         public List<UniversalTextTag> Search()
