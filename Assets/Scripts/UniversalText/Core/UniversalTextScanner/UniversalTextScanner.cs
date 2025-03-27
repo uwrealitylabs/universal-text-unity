@@ -25,20 +25,7 @@ namespace UniversalText.Core
         private Llama3Client _llama3Client;
 
         // Initialize the Llama3Client
-        private UniversalTextScanner()
-        {
-            _llama3Client = new Llama3Client(_llama3BaseUrl);
-        }
-
-        /// <summary>
-        /// Sets the base URL for the Llama 3 instance
-        /// </summary>
-        public void SetLlama3BaseUrl(string baseUrl)
-        {
-            _llama3BaseUrl = baseUrl;
-            _llama3Client = new Llama3Client(_llama3BaseUrl);
-            Debug.Log($"Llama 3 base URL set to: {_llama3BaseUrl}");
-        }
+        private UniversalTextScanner() {}
 
         /// <summary>
         /// Generates RTR by aggregating all search points
@@ -76,32 +63,6 @@ namespace UniversalText.Core
                 rtr = rtr.Remove(rtr.Length - 1);
             }
             return rtr;
-        }
-
-        /// <summary>
-        /// Generates an enhanced RTR by sending raw RTR to Llama 3
-        /// </summary>
-        public async Task<string> GenerateEnhancedAsync()
-        {
-            // Get the raw RTR output
-            string rawRtr = Generate();
-            
-            if (string.IsNullOrEmpty(rawRtr))
-            {
-                return rawRtr;
-            }
-
-            try
-            {
-                // Use Llama 3 to enhance the description
-                string enhancedRtr = await _llama3Client.GetEnhancedDescriptionAsync(rawRtr);
-                return enhancedRtr;
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error enhancing description with Llama 3: {ex.Message}");
-                return rawRtr;  // Return raw RTR if enhancement fails
-            }
         }
 
         /// <summary>
