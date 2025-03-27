@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace UniversalText.Core
@@ -9,6 +10,8 @@ namespace UniversalText.Core
     /// Singleton class that generates a text description of the user's current environment and interactions.
     /// Does so by aggregating the UniversalTextTags present in each given SearchPoint
     /// </summary>
+    
+    
     public class UniversalTextScanner
     {
         private static readonly Lazy<UniversalTextScanner> lazy = new Lazy<UniversalTextScanner>(() => new UniversalTextScanner());
@@ -17,24 +20,43 @@ namespace UniversalText.Core
 
         private List<ISearchPoint> _searchPoints = new List<ISearchPoint>();
 
+        // Base URL for Llama 3 instance 
+        private string _llama3BaseUrl = "http://localhost:11434";  // Updated to Ollama's default port
+        private Llama3Client _llama3Client;
+
+        // Initialize the Llama3Client
+        private UniversalTextScanner()
+        {
+            _llama3Client = new Llama3Client(_llama3BaseUrl);
+        }
+
+        /// <summary>
+        /// Sets the base URL for the Llama 3 instance
+        /// </summary>
+        public void SetLlama3BaseUrl(string baseUrl)
+        {
+            _llama3BaseUrl = baseUrl;
+            _llama3Client = new Llama3Client(_llama3BaseUrl);
+            Debug.Log($"Llama 3 base URL set to: {_llama3BaseUrl}");
+        }
+
         /// <summary>
         /// Generates RTR by aggregating all search points
         /// </summary>
         public string Generate()
         {
             string rtr = "";
-            Debug.Log("# OF SEARCH POINTS: " + _searchPoints.Count);
             foreach (ISearchPoint searchPoint in _searchPoints)
             {
                 List<UniversalTextTag> tags = searchPoint.Search().Distinct().ToList();
                 if (tags.Count == 0) continue;
-                
+
                 if (tags.Count == 1)
                 {
                     rtr += $"{searchPoint.Description} {tags[0].ToString()}. ";
                     continue;
                 }
-                string searchPointStr = searchPoint.Description + ':';
+                string searchPointStr = searchPoint.Description;
                 foreach (UniversalTextTag tag in tags)
                 {
                     if (tag == tags.Last())
@@ -43,7 +65,7 @@ namespace UniversalText.Core
                     }
                     else
                     {
-                        searchPointStr += $" {tag.ToString()};";
+                        searchPointStr += $", {tag.ToString()}";
                     }
                 }
                 rtr += searchPointStr;
@@ -57,6 +79,32 @@ namespace UniversalText.Core
         }
 
         /// <summary>
+        /// Generates an enhanced RTR by sending raw RTR to Llama 3
+        /// </summary>
+        public async Task<string> GenerateEnhancedAsync()
+        {
+            // Get the raw RTR output
+            string rawRtr = Generate();
+            
+            if (string.IsNullOrEmpty(rawRtr))
+            {
+                return rawRtr;
+            }
+
+            try
+            {
+                // Use Llama 3 to enhance the description
+                string enhancedRtr = await _llama3Client.GetEnhancedDescriptionAsync(rawRtr);
+                return enhancedRtr;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Error enhancing description with Llama 3: {ex.Message}");
+                return rawRtr;  // Return raw RTR if enhancement fails
+            }
+        }
+
+        /// <summary>
         /// Adds given search point to be included in the RTR
         /// </summary>
         public void AddSearchPoint(ISearchPoint searchPoint)
@@ -65,4 +113,3 @@ namespace UniversalText.Core
         }
     }
 }
-
