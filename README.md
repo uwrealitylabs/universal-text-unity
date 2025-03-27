@@ -1,6 +1,6 @@
 # Universal Text
 Unity/C# repository for Universal Text. This is where we house the developer-facing features of the Universal Text Package.
-Check out the [Technical Specification](https://docs.google.com/document/d/1ZENwW2QDMECsh4XjdapVCEHr-pyB22QbAG2YkK9n5k4/edit#heading=h.sqd56vvgynf), and here's a [demo](https://drive.google.com/file/d/14TxK6HtaUI-7WHXFeIrrIj6ssKWIqFGY/view?usp=sharing) of what we accomplished at the end of the F24 term.
+Check out the [Technical Specification](https://docs.google.com/document/d/1ZENwW2QDMECsh4XjdapVCEHr-pyB22QbAG2YkK9n5k4/edit#heading=h.sqd56vvgynf), and here's a [demo](https://drive.google.com/file/d/14TxK6HtaUI-7WHXFeIrrIj6ssKWIqFGY/view?usp=sharing&target=blank) of what we accomplished at the end of the F24 term.
 # Setup
 ## Unity 2022.3.24f1
 Unity is the editor that we use to create 3D/XR applications. We will be using it as our engine for the project. 
