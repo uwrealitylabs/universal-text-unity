@@ -824,9 +824,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description: a basic office chair
   attributeConfigs:
-  - formattedDescription: is tagged '{0}'
+  - formattedDescription: has {0} health
     targetComponent: {fileID: 636623648}
-    memberName: tag
+    memberName: health
 --- !u!114 &636623648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,7 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3fed7735648dd2448cd5f3a778352a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 150
 --- !u!1001 &642139391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1312,6 +1312,7 @@ MonoBehaviour:
   - rid: 7219879472968237058
   - rid: 7219879472968237059
   - rid: 7219879472968237060
+  - rid: 7219879490783805440
   references:
     version: 2
     RefIds:
@@ -1338,6 +1339,11 @@ MonoBehaviour:
         rightHand: {fileID: 405500947}
         leftHand: {fileID: 405500948}
         maxPointDistance: 30
+    - rid: 7219879490783805440
+      type: {class: LookingSearchPointConfig, ns: UniversalText.UI, asm: Assembly-CSharp}
+      data:
+        xrCamera: {fileID: 0}
+        maxViewDistance: 10
 --- !u!1 &1066616113 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8096225794911467613, guid: 2db51a3ce7d7fe34a934d68f0c488f54, type: 3}
