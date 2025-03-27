@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.1, y: -0.05, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.10000001, y: 0.050000012, z: 0.050000016}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,5 +96,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebf24131ce804a4cb91c0445d2bc4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scanRadius: 5
-  scanEdge: 0.1
+  scanRadius: 10
+  scanEdge: 0.2
