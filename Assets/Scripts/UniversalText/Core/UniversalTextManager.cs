@@ -67,7 +67,18 @@ namespace UniversalText
             {
                 _sinceLastGenerate -= _generateDelay;
                 System.DateTime generateCallTimestamp = System.DateTime.Now;
-                RTRGenerated.Invoke(UniversalTextScanner.Instance.Generate(), generateCallTimestamp);
+                
+                // Check if RTRGenerated has any subscribers before invoking
+                if (RTRGenerated != null)
+                {
+                    RTRGenerated.Invoke(UniversalTextScanner.Instance.Generate(), generateCallTimestamp);
+                }
+                else
+                {
+                    // No subscribers, just generate the RTR without invoking the event
+                    string rtr = UniversalTextScanner.Instance.Generate();
+                    Debug.Log($"Generated RTR but no subscribers: {rtr}");
+                }
             }
         }
 

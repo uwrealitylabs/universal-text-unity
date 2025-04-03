@@ -1214,7 +1214,7 @@ MonoBehaviour:
   responseText: {fileID: 861395883}
   deepSeekHandler: {fileID: 1567435470}
   llama3Handler: {fileID: 1008300389}
-  activeLLM: 0
+  activeLLM: 1
   contextUpdateInterval: 1
   includeContext: 1
 --- !u!1 &855141565
@@ -3580,6 +3580,57 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 304683535}
   m_SourcePrefab: {fileID: 100100000, guid: 7c525024ae8431e45b357520bb8407a6, type: 3}
+--- !u!1 &2138500820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138500822}
+  - component: {fileID: 2138500821}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2138500821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138500820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d541892bd247b954094a1b9bec09456f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchPointConfigs: []
+  _generateDelay: 1
+  useLlama3Enhancement: 0
+  llama3BaseUrl: http://localhost:11434
+  references:
+    version: 2
+    RefIds: []
+--- !u!4 &2138500822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138500820}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.370465, y: -0.6118324, z: 8.989021}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &543450653143515745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3683,3 +3734,4 @@ SceneRoots:
   - {fileID: 822471388}
   - {fileID: 1008300390}
   - {fileID: 1567435471}
+  - {fileID: 2138500822}
