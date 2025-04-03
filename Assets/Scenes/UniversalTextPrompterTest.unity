@@ -1212,8 +1212,8 @@ MonoBehaviour:
   inputField: {fileID: 1648679279}
   submitButton: {fileID: 1613157734}
   responseText: {fileID: 861395883}
-  deepSeekHandler: {fileID: 0}
-  llama3Handler: {fileID: 0}
+  deepSeekHandler: {fileID: 1567435470}
+  llama3Handler: {fileID: 1008300389}
   activeLLM: 0
   contextUpdateInterval: 1
   includeContext: 1
@@ -1757,6 +1757,9 @@ MonoBehaviour:
   - rid: 7219879472968237058
   - rid: 7219879472968237059
   - rid: 7219879472968237060
+  _generateDelay: 1
+  useLlama3Enhancement: 0
+  llama3BaseUrl: http://localhost:11434
   references:
     version: 2
     RefIds:
