@@ -1783,6 +1783,51 @@ MonoBehaviour:
         rightHand: {fileID: 405500947}
         leftHand: {fileID: 405500948}
         maxPointDistance: 30
+--- !u!1 &1008300388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1008300390}
+  - component: {fileID: 1008300389}
+  m_Layer: 0
+  m_Name: Llama3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1008300389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008300388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec8820c4faf8443b94069f71b37dc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelName: llama3.2
+--- !u!4 &1008300390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008300388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 341.31064, y: 225.52051, z: 23.777401}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1066616113 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8096225794911467613, guid: 2db51a3ce7d7fe34a934d68f0c488f54, type: 3}
@@ -2503,6 +2548,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description: a white yoga ball
   attributeConfigs: []
+--- !u!1 &1567435469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567435471}
+  - component: {fileID: 1567435470}
+  m_Layer: 0
+  m_Name: DeepSeek
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1567435470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567435469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2505d556d65aa42768ef1243dab8cac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelName: deepseek-r1:1.5b
+--- !u!4 &1567435471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567435469}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 341.31064, y: 225.52051, z: 23.777401}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1613157732
 GameObject:
   m_ObjectHideFlags: 0
@@ -3588,3 +3678,5 @@ SceneRoots:
   - {fileID: 960486125}
   - {fileID: 1423865318}
   - {fileID: 822471388}
+  - {fileID: 1008300390}
+  - {fileID: 1567435471}
