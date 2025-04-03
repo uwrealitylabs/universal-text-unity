@@ -881,52 +881,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543068460}
   m_CullTransparentMesh: 1
---- !u!1 &604408016
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 604408018}
-  - component: {fileID: 604408017}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &604408017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604408016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b303bb3ef4f204ea59ef8aaab56ed25d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messageSender: {fileID: 0}
-  updateInterval: 1
---- !u!4 &604408018
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604408016}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636623644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2824801679941595952, guid: 3713613c4ffcd6945900432c53af79b8, type: 3}
@@ -1211,51 +1165,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1659082882}
   m_SourcePrefab: {fileID: 100100000, guid: 09786b2145094304f8e76c50e272040f, type: 3}
---- !u!1 &818558007
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 818558009}
-  - component: {fileID: 818558008}
-  m_Layer: 0
-  m_Name: DeepSeekManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &818558008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818558007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2505d556d65aa42768ef1243dab8cac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modelName: deepseek:1.5b
---- !u!4 &818558009
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818558007}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 848.0951, y: 366.48297, z: 0.75805664}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &822471386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,7 +1176,7 @@ GameObject:
   - component: {fileID: 822471388}
   - component: {fileID: 822471389}
   m_Layer: 0
-  m_Name: MessageSender
+  m_Name: Text Prompter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1297,16 +1206,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 822471386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59c526f4bbc614ad590cb02ee6e26a57, type: 3}
+  m_Script: {fileID: 11500000, guid: b303bb3ef4f204ea59ef8aaab56ed25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 1648679279}
-  button: {fileID: 1613157734}
+  submitButton: {fileID: 1613157734}
   responseText: {fileID: 861395883}
   deepSeekHandler: {fileID: 0}
   llama3Handler: {fileID: 0}
-  useDeepSeek: 1
-  prompter: {fileID: 0}
+  activeLLM: 1
+  contextUpdateInterval: 1
   includeContext: 1
 --- !u!1 &855141565
 GameObject:
@@ -3676,8 +3585,6 @@ SceneRoots:
   - {fileID: 1463193379}
   - {fileID: 405500946}
   - {fileID: 1137107735}
-  - {fileID: 604408018}
   - {fileID: 960486125}
-  - {fileID: 818558009}
-  - {fileID: 822471388}
   - {fileID: 1423865318}
+  - {fileID: 822471388}
