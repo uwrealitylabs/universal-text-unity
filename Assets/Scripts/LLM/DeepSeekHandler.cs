@@ -82,7 +82,6 @@ public class DeepSeekHandler : MonoBehaviour
     {
         List<string> responses = new List<string>();
 
-        // Split response by newline and parse each line as JSON
         foreach (string line in responseText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
         {
             try
@@ -90,7 +89,17 @@ public class DeepSeekHandler : MonoBehaviour
                 var jsonResponse = JsonUtility.FromJson<DeepSeekResponse>(line);
                 if (jsonResponse != null && !string.IsNullOrEmpty(jsonResponse.response))
                 {
-                    responses.Add(jsonResponse.response);
+                    // Use a more robust regex pattern with RegexOptions.Singleline
+                    string cleanedResponse = System.Text.RegularExpressions.Regex
+                        .Replace(jsonResponse.response, 
+                                "<think>[\\s\\S]*?</think>",  // [\s\S] matches any character including newlines
+                                "", 
+                                System.Text.RegularExpressions.RegexOptions.Singleline)
+                        .Replace("<assistant>", "")
+                        .Replace("</assistant>", "")
+                        .Trim();
+                    
+                    responses.Add(cleanedResponse);
                 }
             }
             catch (Exception ex)
