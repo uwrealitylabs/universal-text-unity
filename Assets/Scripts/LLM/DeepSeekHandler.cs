@@ -3,7 +3,9 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using System;
-using Newtonsoft.Json; 
+using Newtonsoft.Json;
+using System.Text.RegularExpressions;
+using System.Text;
 
 [System.Serializable]
 public class DeepSeekRequest
@@ -62,8 +64,11 @@ public class DeepSeekHandler : MonoBehaviour
             {
                 string responseText = request.downloadHandler.text;
                 Debug.Log($"DeepSeekHandler: Received raw response: {responseText}");
-                string parsedResponse = ParseDeepSeekResponse(responseText);
-                Debug.Log($"DeepSeekHandler: Parsed response: {parsedResponse}");
+                
+                // Try a completely different parsing approach
+                string parsedResponse = ParseResponseManually(responseText);
+                Debug.Log($"DeepSeekHandler: Manually parsed response: {parsedResponse}");
+                
                 messageLog.Add(parsedResponse);
                 onResponse?.Invoke(parsedResponse);
             }
@@ -78,37 +83,65 @@ public class DeepSeekHandler : MonoBehaviour
         }
     }
 
-    private string ParseDeepSeekResponse(string responseText)
+    private string ParseResponseManually(string responseText)
     {
-        List<string> responses = new List<string>();
-
-        foreach (string line in responseText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
+        // Split the response by lines
+        string[] lines = responseText.Split('\n');
+        StringBuilder finalResponse = new StringBuilder();
+        
+        foreach (string line in lines)
         {
+            if (string.IsNullOrWhiteSpace(line)) continue;
+            
             try
             {
-                var jsonResponse = JsonUtility.FromJson<DeepSeekResponse>(line);
-                if (jsonResponse != null && !string.IsNullOrEmpty(jsonResponse.response))
+                // Parse the JSON
+                Dictionary<string, string> responsePart = 
+                    JsonConvert.DeserializeObject<Dictionary<string, string>>(line);
+                
+                if (responsePart != null && responsePart.ContainsKey("response"))
                 {
-                    // Use a more robust regex pattern with RegexOptions.Singleline
-                    string cleanedResponse = System.Text.RegularExpressions.Regex
-                        .Replace(jsonResponse.response, 
-                                "<think>[\\s\\S]*?</think>",  // [\s\S] matches any character including newlines
-                                "", 
-                                System.Text.RegularExpressions.RegexOptions.Singleline)
-                        .Replace("<assistant>", "")
-                        .Replace("</assistant>", "")
-                        .Trim();
+                    string text = responsePart["response"];
                     
-                    responses.Add(cleanedResponse);
+                    // Skip thinking sections
+                    if (text.Contains("<think>") && text.Contains("</think>"))
+                    {
+                        int startIdx = text.IndexOf("<think>");
+                        int endIdx = text.IndexOf("</think>") + "</think>".Length;
+                        
+                        if (startIdx > 0)
+                        {
+                            finalResponse.Append(text.Substring(0, startIdx));
+                        }
+                        
+                        if (endIdx < text.Length)
+                        {
+                            finalResponse.Append(text.Substring(endIdx));
+                        }
+                    }
+                    else
+                    {
+                        // No thinking tags, just append the text
+                        finalResponse.Append(text);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Debug.LogWarning($"Could not parse line: {line}. Error: {ex.Message}");
+                Debug.LogWarning($"Failed to parse line: {line}. Error: {ex.Message}");
             }
         }
-
-        return string.Join("", responses);
+        
+        // Clean up any remaining tags
+        string result = finalResponse.ToString()
+            .Replace("<assistant>", "")
+            .Replace("</assistant>", "")
+            .Trim();
+            
+        // Add spaces after punctuation if needed
+        result = Regex.Replace(result, @"([.,!?;:])([a-zA-Z])", "$1 $2");
+        
+        return result;
     }
 
     // Helper method to get conversation history
