@@ -840,8 +840,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 380, y: -100}
-  m_SizeDelta: {x: -840, y: -400}
+  m_AnchoredPosition: {x: 430, y: -100}
+  m_SizeDelta: {x: -940, y: -400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543068462
 MonoBehaviour:
@@ -1304,7 +1304,10 @@ MonoBehaviour:
   button: {fileID: 1613157734}
   responseText: {fileID: 861395883}
   deepSeekHandler: {fileID: 0}
+  llama3Handler: {fileID: 0}
+  useDeepSeek: 1
   prompter: {fileID: 0}
+  includeContext: 1
 --- !u!1 &855141565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1024, y: 768}
@@ -2627,8 +2630,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -40, y: 10}
-  m_SizeDelta: {x: 180, y: 30}
+  m_AnchoredPosition: {x: -40, y: 20}
+  m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1613157734
 MonoBehaviour:
@@ -2749,8 +2752,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 380, y: 55}
-  m_SizeDelta: {x: -840, y: 30}
+  m_AnchoredPosition: {x: 430, y: 55}
+  m_SizeDelta: {x: -940, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1648679279
 MonoBehaviour:
