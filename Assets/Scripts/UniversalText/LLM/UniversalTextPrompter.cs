@@ -14,9 +14,11 @@ public class UniversalTextPrompter : MonoBehaviour
     [Header("LLM Settings")]
     [SerializeField] private DeepSeekHandler deepSeekHandler;
     [SerializeField] private Llama3Handler llama3Handler;
+    [SerializeField] private ChatGPTHandler chatGPTHandler;
+    [SerializeField] private GeminiHandler geminiHandler;
     
     // Make the enum public so it can be used in public methods
-    public enum LLMType { DeepSeek, Llama3 }
+    public enum LLMType { DeepSeek, Llama3, ChatGPT, Gemini }
     [SerializeField] private LLMType activeLLM = LLMType.DeepSeek;
     
     [Header("Context Settings")]
@@ -46,6 +48,18 @@ public class UniversalTextPrompter : MonoBehaviour
         {
             llama3Handler = FindObjectOfType<Llama3Handler>();
             if (llama3Handler == null) Debug.LogError("Llama3Handler not found!");
+        }
+        
+        if (chatGPTHandler == null && activeLLM == LLMType.ChatGPT)
+        {
+            chatGPTHandler = FindObjectOfType<ChatGPTHandler>();
+            if (chatGPTHandler == null) Debug.LogError("ChatGPTHandler not found!");
+        }
+        
+        if (geminiHandler == null && activeLLM == LLMType.Gemini)
+        {
+            geminiHandler = FindObjectOfType<GeminiHandler>();
+            if (geminiHandler == null) Debug.LogError("GeminiHandler not found!");
         }
         
         // Set up button listener
@@ -109,6 +123,20 @@ public class UniversalTextPrompter : MonoBehaviour
                     llama3Handler.SendMessage(fullPrompt, OnResponseReceived);
                 else
                     HandleMissingLLM("Llama3");
+                break;
+                
+            case LLMType.ChatGPT:
+                if (chatGPTHandler != null)
+                    chatGPTHandler.SendMessage(fullPrompt, OnResponseReceived);
+                else
+                    HandleMissingLLM("ChatGPT");
+                break;
+                
+            case LLMType.Gemini:
+                if (geminiHandler != null)
+                    geminiHandler.SendMessage(fullPrompt, OnResponseReceived);
+                else
+                    HandleMissingLLM("Gemini");
                 break;
         }
     }

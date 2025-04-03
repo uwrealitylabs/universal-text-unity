@@ -56,7 +56,7 @@ public class TestPrompt : MonoBehaviour
             var geminiHandler = FindObjectOfType<GeminiHandler>();
             if (geminiHandler != null)
             {
-                geminiHandler.SendReply(message, response =>
+                geminiHandler.SendMessage(message, response =>
                 {
                     Debug.Log("Gemini response received: " + response);
                     AppendMessage(response ?? "Error: No response from Gemini", isUser: false);
@@ -76,7 +76,7 @@ public class TestPrompt : MonoBehaviour
             var chatGPTHandler = FindObjectOfType<ChatGPTHandler>();
             if (chatGPTHandler != null)
             {
-                chatGPTHandler.SendReply(message, response =>
+                chatGPTHandler.SendMessage(message, response =>
                 {
                     Debug.Log("ChatGPT response received: " + response);
                     AppendMessage(response ?? "Error: No response from ChatGPT", isUser: false);
