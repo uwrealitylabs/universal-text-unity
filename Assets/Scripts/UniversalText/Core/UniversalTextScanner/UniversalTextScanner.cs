@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace UniversalText.Core
@@ -9,6 +10,8 @@ namespace UniversalText.Core
     /// Singleton class that generates a text description of the user's current environment and interactions.
     /// Does so by aggregating the UniversalTextTags present in each given SearchPoint
     /// </summary>
+    
+    
     public class UniversalTextScanner
     {
         private static readonly Lazy<UniversalTextScanner> lazy = new Lazy<UniversalTextScanner>(() => new UniversalTextScanner());
@@ -17,24 +20,30 @@ namespace UniversalText.Core
 
         private List<ISearchPoint> _searchPoints = new List<ISearchPoint>();
 
+        // Base URL for Llama 3 instance 
+        private string _llama3BaseUrl = "http://localhost:11434";  // Updated to Ollama's default port
+        private Llama3Client _llama3Client;
+
+        // Initialize the Llama3Client
+        private UniversalTextScanner() {}
+
         /// <summary>
         /// Generates RTR by aggregating all search points
         /// </summary>
         public string Generate()
         {
             string rtr = "";
-            Debug.Log("# OF SEARCH POINTS: " + _searchPoints.Count);
             foreach (ISearchPoint searchPoint in _searchPoints)
             {
                 List<UniversalTextTag> tags = searchPoint.Search().Distinct().ToList();
                 if (tags.Count == 0) continue;
-                
+
                 if (tags.Count == 1)
                 {
                     rtr += $"{searchPoint.Description} {tags[0].ToString()}. ";
                     continue;
                 }
-                string searchPointStr = searchPoint.Description + ':';
+                string searchPointStr = searchPoint.Description;
                 foreach (UniversalTextTag tag in tags)
                 {
                     if (tag == tags.Last())
@@ -43,7 +52,7 @@ namespace UniversalText.Core
                     }
                     else
                     {
-                        searchPointStr += $" {tag.ToString()};";
+                        searchPointStr += $", {tag.ToString()}";
                     }
                 }
                 rtr += searchPointStr;
@@ -65,4 +74,3 @@ namespace UniversalText.Core
         }
     }
 }
-
