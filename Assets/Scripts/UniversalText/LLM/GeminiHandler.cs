@@ -56,11 +56,11 @@ public class GeminiCandidate
 
 public class GeminiHandler : MonoBehaviour
 {
-    private string apiKey = "insert api key";
+    private string apiKey = "INSERT_API_KEY";
     private List<GeminiContent> messagesLog = new List<GeminiContent>();
     private string modelName = "gemini-2.0-flash";
 
-    public void SendReply(string sentMessage, System.Action<string> onResponse)
+    public void SendMessage(string sentMessage, System.Action<string> onResponse)
     {
         StartCoroutine(SendRequestCoroutine(sentMessage, onResponse));
     }
