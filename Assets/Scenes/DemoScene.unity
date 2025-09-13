@@ -1515,12 +1515,23 @@ MonoBehaviour:
   - rid: 7219879472968237058
   - rid: 7219879472968237059
   - rid: 7219879472968237060
+  - rid: 150161560214437888
+  - rid: 150161715411288064
   _generateDelay: 1
   useLlama3Enhancement: 0
   llama3BaseUrl: http://localhost:11434
   references:
     version: 2
     RefIds:
+    - rid: 150161560214437888
+      type: {class: LookingSearchPointConfig, ns: UniversalText.UI, asm: Assembly-CSharp}
+      data:
+        xrCamera: {fileID: 1698400506}
+        maxViewDistance: 10
+    - rid: 150161715411288064
+      type: {class: ScanningSearchPointConfig, ns: UniversalText.UI, asm: Assembly-CSharp}
+      data:
+        scanner: {fileID: 0}
     - rid: 7219879472968237056
       type: {class: GrabbingSearchPointConfig, ns: UniversalText.UI, asm: Assembly-CSharp}
       data:
