@@ -19,7 +19,7 @@ public class UniversalTextPrompter : MonoBehaviour
     
     // Make the enum public so it can be used in public methods
     public enum LLMType { DeepSeek, Llama3, ChatGPT, Gemini }
-    [SerializeField] private LLMType activeLLM = LLMType.DeepSeek;
+    [SerializeField] private LLMType activeLLM = LLMType.Llama3;
     
     [Header("Context Settings")]
     [SerializeField] private float contextUpdateInterval = 1f;

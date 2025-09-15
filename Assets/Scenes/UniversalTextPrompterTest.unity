@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.081782475, g: 0.09898821, b: 0.1317783, a: 1}
+  m_IndirectSpecularColor: {r: 0.0817826, g: 0.098988295, b: 0.1317786, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1572,7 +1572,7 @@ MonoBehaviour:
   llama3Handler: {fileID: 1008300389}
   chatGPTHandler: {fileID: 169813271}
   geminiHandler: {fileID: 2048092810}
-  activeLLM: 3
+  activeLLM: 1
   contextUpdateInterval: 1
   includeContext: 1
 --- !u!4 &924895298
