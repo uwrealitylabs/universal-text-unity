@@ -9,10 +9,22 @@ using System.Linq;
 
 namespace UniversalText.Core
 {
+    /// <summary>
+    /// SearchPoint that retrieves gameobjects that the user is pointing at (using a hand tracked pointing gesture)
+    /// </summary>
     public class PointingSearchPoint : ISearchPoint
     {
+        /// <summary>
+        /// User's right Oculus XR hand
+        /// </summary>
         private Hand _rightHand;
+        /// <summary>
+        /// User's left Oculus XR hand
+        /// </summary>
         private Hand _leftHand;
+        /// <summary>
+        /// Max distance that a gameobject can be detected at
+        /// </summary>
         private float _maxDistance;
 
         public string Description { get => "The user is pointing at"; }

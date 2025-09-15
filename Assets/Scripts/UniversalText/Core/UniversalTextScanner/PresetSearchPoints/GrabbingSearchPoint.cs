@@ -5,9 +5,18 @@ using UnityEngine;
 
 namespace UniversalText.Core
 {
+    /// <summary>
+    /// Searchpoint that retrieves gameobjects the user is grabbing/holding
+    /// </summary>
     public class GrabbingSearchPoint : ISearchPoint
     {
+        /// <summary>
+        /// Left Oculus XR HandGrabInteractor
+        /// </summary>
         private HandGrabInteractor _leftHandGrab;
+        /// <summary>
+        /// Right Oculus XR HandGrabInteractor
+        /// </summary>
         private HandGrabInteractor _rightHandGrab;
 
         public string Description { get => "The user is grabbing"; }

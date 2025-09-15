@@ -10,8 +10,17 @@ namespace UniversalText.Core
     {
         public string Description { get => "The user is near to"; }
 
+        /// <summary>
+        /// Camera representing the user's position in space
+        /// </summary>
         private Camera _camera;
+        /// <summary>
+        /// Max distance that a gameobject can be detected at
+        /// </summary>
         private float _maxDistance;
+        /// <summary>
+        /// Max gameobjects that can be detected as "nearby". Closest gameobjects prioritized
+        /// </summary>
         private int _maxNumber;
 
         public NearbySearchPoint(Camera xrCamera, float maxDistance, int maxNumber)

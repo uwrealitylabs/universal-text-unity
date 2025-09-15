@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5790847382355352970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 921967324282013355}
+  - component: {fileID: 3743726878126743291}
+  m_Layer: 0
+  m_Name: UniversalTextManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &921967324282013355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790847382355352970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3743726878126743291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790847382355352970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d541892bd247b954094a1b9bec09456f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchPointConfigs:
+  - rid: 7219879472968237056
+  - rid: 7219879472968237058
+  - rid: 7219879472968237059
+  - rid: 7219879472968237060
+  _generateDelay: 1
+  useLlama3Enhancement: 1
+  llama3BaseUrl: http://localhost:11434
+  references:
+    version: 2
+    RefIds:
+    - rid: 7219879472968237056
+      type: {class: GrabbingSearchPointConfig, ns: UniversalText.UI, asm: Assembly-CSharp}
+      data:
+        _leftHandGrabInteractor: {fileID: 0}
+        _rightHandGrabInteractor: {fileID: 0}
+    - rid: 7219879472968237058
+      type: {class: LookingInDirectionOfSearchPointConfig, ns: UniversalText.UI, asm: Assembly-CSharp}
+      data:
+        xrCamera: {fileID: 0}
+        maxViewDistance: 10
+        angleSpread: 15
+    - rid: 7219879472968237059
+      type: {class: NearbySearchPointConfig, ns: UniversalText.UI, asm: Assembly-CSharp}
+      data:
+        xrCamera: {fileID: 0}
+        maxDetectionDistance: 10
+        maxDetectedAmount: 3
+    - rid: 7219879472968237060
+      type: {class: PointingSearchPointConfig, ns: UniversalText.UI, asm: Assembly-CSharp}
+      data:
+        rightHand: {fileID: 0}
+        leftHand: {fileID: 0}
+        maxPointDistance: 30
